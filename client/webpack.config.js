@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -30,11 +29,8 @@ module.exports = {
     clean: true,
   },
   devServer: {
-    disableHostCheck: true,
     historyApiFallback: true,
     port: 3030,
     host: '0.0.0.0',
-    hot: true,
-    inline: true,
   },
 };
