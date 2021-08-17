@@ -1,2 +1,5 @@
 node_modules
 dist
+
+# server
+server/config/key.js

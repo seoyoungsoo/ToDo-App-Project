@@ -5,12 +5,13 @@ const app = express();
 const port = 3035;
 
 const { User } = require('./models/User');
+const { url } = require('./config/key');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 mongoose
-  .connect('mongodb+srv://youngqaa:dudtndhqk12@nestcluster.a3zpl.mongodb.net/todolist', {
+  .connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
