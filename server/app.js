@@ -1,32 +1,35 @@
 const express = require('express');
-const path = require('path');
-const cors = require('cors');
+const mongoose = require('mongoose');
 
 const app = express();
+const port = 3035;
 
-const port = 8000;
+const { User } = require('./models/User');
 
-class Server {
-  constructor() {
-    const app = express();
-    this.app = app;
-  }
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-  setRoute() {}
+mongoose
+  .connect('mongodb+srv://youngqaa:dudtndhqk12@nestcluster.a3zpl.mongodb.net/todolist', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => console.log('MongoDB connected...'))
+  .catch((err) => console.log(err));
 
-  setMiddleware() {}
+app.post('/register', (req, res) => {
+  const user = new User(req.body);
 
-  listen() {
-    this.setMiddleware();
-    this.app.listen(port, () => {
-      console.log(`app listening at http://loaalhost:${port}`);
+  user.save((err, doc) => {
+    if (err) return res.status(500).json({ success: false, err });
+    return res.status(200).json({
+      success: true,
     });
-  }
-}
+  });
+});
 
-const init = () => {
-  const server = new Server();
-  server.listen();
-};
-
-init();
+app.listen(port, () => {
+  console.log(`app listening at http://localhost:${port}`);
+});
