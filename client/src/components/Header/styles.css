@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+.option {
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#menu:hover {
+  font-weight: bold;
+}
+
+#logout {
+  cursor: pointer;
+}
+
+#logout:hover {
+  font-weight: bold;
+}
