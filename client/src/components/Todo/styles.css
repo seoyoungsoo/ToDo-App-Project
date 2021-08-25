@@ -1,0 +1,26 @@
+.todo-container {
+  width: 530px;
+  height: 100%;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 15px 20px;
+}
+
+.todo-header {
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: white;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: row;
+}
