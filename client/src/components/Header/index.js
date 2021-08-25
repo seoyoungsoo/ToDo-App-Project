@@ -1,14 +1,16 @@
 import HeaderEvent from '@src/events/Header';
+import HeaderModel from '@src/models/Header';
 import '@src/components/Header/styles.css';
 
 class Header {
   constructor(root) {
+    this.model = HeaderModel;
     this.element = root;
     this.onEvent();
   }
 
   onEvent() {
-    new HeaderEvent(this.element);
+    new HeaderEvent(this.element, this.model.getState()).init();
   }
 
   render() {
